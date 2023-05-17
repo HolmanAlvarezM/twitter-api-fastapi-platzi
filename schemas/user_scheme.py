@@ -6,17 +6,18 @@ from typing import Optional
 # Pydantic
 from pydantic import BaseModel, EmailStr, Field
 
-class userBase(BaseModel):
+class UserBase(BaseModel):
     user_id = UUID = Field(...)
     email = EmailStr = Field(...)
     
-class userLogin(userBase):
+class UserLogin(UserBase):
     password = str = Field(
         ...,
-        min_length=8
+        min_length=8,
+        max_length=64
     )
 
-class user(userBase):
+class User(UserBase):
     first_name = str = Field(
         ...,
         min_length=3,
