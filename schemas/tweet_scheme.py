@@ -5,10 +5,9 @@ from typing import Optional
 
 # Pydantic
 from pydantic import BaseModel, Field
+from schemas.user_scheme import User
 
-from user_scheme import User
-
-class tweet(BaseModel):
+class Tweet(BaseModel):
     tweet_id: UUID = Field(...)
     content: str = Field(
         ...,
